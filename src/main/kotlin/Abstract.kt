@@ -30,7 +30,6 @@ fun main() {
 
     human.displayDetails()
     human.run()
-    human.breath()
 
 
 }
