@@ -49,6 +49,11 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
         tvOptionFour = findViewById(R.id.tv_option_four)
         btnSubmit = findViewById(R.id.submitBtn)
 
+        tvOptionOne?.setOnClickListener(this)
+        tvOptionTwo?.setOnClickListener(this)
+        tvOptionThree?.setOnClickListener(this)
+        tvOptionFour?.setOnClickListener(this)
+        btnSubmit?.setOnClickListener(this)
 
         mQuestionList = Constants.getQuestions()
         setQuestion()
@@ -110,7 +115,35 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
         tv.background = ContextCompat.getDrawable(this, R.drawable.selected_option_border_bg)
     }
 
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
+    override fun onClick(view: View?) {
+        when(view?.id){
+            R.id.tv_option_one -> {
+                tvOptionOne?.let{
+                    selectedOptionView(it, 1)
+                }
+            }
+
+            R.id.tv_option_two -> {
+                tvOptionTwo?.let{
+                    selectedOptionView(it, 2)
+                }
+            }
+
+            R.id.tv_option_three -> {
+                tvOptionThree?.let{
+                    selectedOptionView(it, 3)
+                }
+            }
+
+            R.id.tv_option_four -> {
+                tvOptionFour?.let{
+                    selectedOptionView(it, 4)
+                }
+            }
+
+            R.id.submitBtn ->{
+                // TODO "implement btn submit"
+            }
+        }
     }
 }
