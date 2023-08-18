@@ -16,13 +16,13 @@ class MainActivity : AppCompatActivity() {
 
         val startBtn: Button = findViewById(R.id.startBtn)
         val etName: EditText = findViewById(R.id.name)
-        val submitBtn: Button = findViewById(R.id.submitBtn)
 
         startBtn.setOnClickListener {
             if (etName.text.isEmpty()) {
                 Toast.makeText(this, "Please enter your name", Toast.LENGTH_LONG).show()
             }else{
                 val intent = Intent(this, QuestionPageActivity::class.java)
+                intent.putExtra(Constants.USER_NAME, etName.text.toString())
                 startActivity(intent)
                 finish()
             }

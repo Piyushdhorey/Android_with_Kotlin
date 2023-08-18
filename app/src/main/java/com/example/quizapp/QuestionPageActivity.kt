@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
@@ -19,6 +21,8 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
     private var mQuestionList: ArrayList<Question>? = null
     private var mSelectedOptionPosition: Int = 0
 
+    private var mUserName: String? = null
+    private var mCorrectAnswers: Int = 0
 
     private var progressBar: ProgressBar? = null
     private var tvProgress: TextView? = null
@@ -37,6 +41,8 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question_page)
+
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
 
         progressBar = findViewById(R.id.progress_bar)
         tvProgress = findViewById(R.id.tv_progress)
@@ -57,18 +63,17 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
 
         mQuestionList = Constants.getQuestions()
         setQuestion()
-        defaultOptionsView()
+
     }
 
     private fun setQuestion() {
 
-
-        val mCurrentPosition = 1
-
         val question: Question = mQuestionList!![mCurrentPosition - 1]
+        defaultOptionsView()
+
         ivImage?.setImageResource(question.image)
         progressBar?.progress = mCurrentPosition
-        tvProgress?.text = "$mCurrentPosition / ${progressBar?.max}"
+        tvProgress?.text = "$mCurrentPosition" + "/" + progressBar?.max
         tvQuestion?.text = question.questions
         tvOptionOne?.text = question.optionOne
         tvOptionTwo?.text = question.optionTwo
@@ -76,7 +81,7 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
         tvOptionFour?.text = question.optionFour
 
         if(mCurrentPosition == mQuestionList!!.size){
-            btnSubmit?.text == "FINISH"
+            btnSubmit?.text = "FINISH"
         }else{
             btnSubmit?.text = "SUBMIT"
         }
@@ -149,21 +154,31 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
                         mCurrentPosition <= mQuestionList!!.size -> {
                             setQuestion()
                         }
+                        else -> {
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionList?.size)
+                            startActivity(intent)
+                            finish()
+                        }
                     }
                 }else{
                     val question = mQuestionList?.get(mCurrentPosition - 1)
                     if(question!!.correctAnswer != mSelectedOptionPosition){
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
                     }else{
-                        answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
-
-                        if(mCurrentPosition == mQuestionList!!.size){
-                            btnSubmit?.text = "FINISH"
-                        }else{
-                            btnSubmit?.text = "NEXT QUESTION"
-                        }
-                        mSelectedOptionPosition = 0
+                        mCorrectAnswers++
                     }
+                    answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                    if(mCurrentPosition == mQuestionList!!.size){
+                        btnSubmit?.text = "FINISH"
+                    }else{
+                        btnSubmit?.text = "NEXT QUESTION"
+                    }
+
+                    mSelectedOptionPosition = 0
                 }
             }
         }
@@ -175,13 +190,13 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
                 tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
             }
             2 -> {
-                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
+                tvOptionTwo?.background = ContextCompat.getDrawable(this@QuestionPageActivity, drawableView)
             }
             3 -> {
-                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
+                tvOptionThree?.background = ContextCompat.getDrawable(this@QuestionPageActivity, drawableView)
             }
             4 -> {
-                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
+                tvOptionFour?.background = ContextCompat.getDrawable(this@QuestionPageActivity, drawableView)
             }
         }
     }
