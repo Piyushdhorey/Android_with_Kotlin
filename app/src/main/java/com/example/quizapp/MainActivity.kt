@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,12 +9,14 @@ import android.widget.EditText
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val startBtn: Button = findViewById(R.id.startBtn)
         val etName: EditText = findViewById(R.id.name)
+        val submitBtn: Button = findViewById(R.id.submitBtn)
 
         startBtn.setOnClickListener {
             if (etName.text.isEmpty()) {

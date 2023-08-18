@@ -142,7 +142,46 @@ class QuestionPageActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.submitBtn ->{
-                // TODO "implement btn submit"
+                if(mSelectedOptionPosition == 0){
+                    mCurrentPosition++
+
+                    when{
+                        mCurrentPosition <= mQuestionList!!.size -> {
+                            setQuestion()
+                        }
+                    }
+                }else{
+                    val question = mQuestionList?.get(mCurrentPosition - 1)
+                    if(question!!.correctAnswer != mSelectedOptionPosition){
+                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    }else{
+                        answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                        if(mCurrentPosition == mQuestionList!!.size){
+                            btnSubmit?.text = "FINISH"
+                        }else{
+                            btnSubmit?.text = "NEXT QUESTION"
+                        }
+                        mSelectedOptionPosition = 0
+                    }
+                }
+            }
+        }
+    }
+
+    private fun answerView(answer: Int, drawableView: Int) {
+        when (answer) {
+            1 -> {
+                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            2 -> {
+                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            3 -> {
+                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            4 -> {
+                tvOptionOne?.background = ContextCompat.getDrawable(this, drawableView)
             }
         }
     }
