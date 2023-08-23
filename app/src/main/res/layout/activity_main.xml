@@ -11,30 +11,54 @@
         android:id="@+id/myImageView"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:src="@drawable/img_main_page"
+        android:src="@drawable/__min_feature_photo"
         android:contentDescription="@string/imageStart"
-        app:layout_constraintBottom_toTopOf="@+id/flStart"
+        app:layout_constraintBottom_toTopOf="@+id/ll_exercise_starters"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/flStart"
-        app:layout_constraintTop_toBottomOf="@id/myImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/item_color_accent_border_ripple_background"
+    <LinearLayout
+        android:id="@+id/ll_exercise_starters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/myImageView"
         >
-        <TextView
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:layout_width="165dp"
             android:layout_height="wrap_content"
-            android:text="@string/start"
-            android:layout_gravity="center"
-            android:textSize="22sp"
-            android:textColor="#6a994e"
-            android:textStyle="bold"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/bicyclecrunch" />
+
+        <ImageView
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/compundpushups" />
 
 
-    </FrameLayout>
+
+    </LinearLayout>
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/flStart"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/myImageView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:background="@drawable/item_color_accent_border_ripple_background"-->
+<!--        >-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/start"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textSize="22sp"-->
+<!--            android:textColor="#6a994e"-->
+<!--            android:textStyle="bold"/>-->
+
+<!--    </FrameLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

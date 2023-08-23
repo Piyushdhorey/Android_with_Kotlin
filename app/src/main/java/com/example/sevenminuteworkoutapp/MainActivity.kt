@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-//        val flStart: FrameLayout = findViewById(R.id.flStart)
-        binding?.flStart?.setOnClickListener{
-//            Toast.makeText(this, "Here we will start exercise", Toast.LENGTH_LONG).show()
-            val intent = Intent(this, ExerciseActivity::class.java)
-            startActivity(intent)
-        }
+////        val flStart: FrameLayout = findViewById(R.id.flStart)
+//        binding?.?.setOnClickListener{
+////            Toast.makeText(this, "Here we will start exercise", Toast.LENGTH_LONG).show()
+//            val intent = Intent(this, ExerciseActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 
     override fun onDestroy() {
