@@ -6,8 +6,8 @@ object Constants {
 
         val bicycleCrunch  = ExerciseModel(
             1,
-            "Bicycle Crunch",
-            R.drawable.bicyclecrunch,
+            "COMPOUND PUSH-UPS",
+            R.drawable.compundpushups,
             false,
             false
         )
@@ -15,8 +15,8 @@ object Constants {
 
         val compundPushups = ExerciseModel(
             2,
-            "Compound PushUps",
-            R.drawable.compundpushups,
+            "BICYCLE CRUNCH",
+            R.drawable.bicyclecrunch,
             false,
             false
         )
@@ -24,7 +24,7 @@ object Constants {
 
         val forwardLunges = ExerciseModel(
             3,
-            "Forward Lunges",
+            "FORWARD LUNGES",
             R.drawable.forwardlunges,
             false,
             false

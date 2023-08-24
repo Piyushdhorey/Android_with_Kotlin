@@ -4,8 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/main_screen_main_layout_padding"
+
+    android:background="@drawable/_781990"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#4AEBFF3B"/>
 
     <ImageView
         android:id="@+id/myImageView"
@@ -25,40 +35,30 @@
         app:layout_constraintTop_toBottomOf="@+id/myImageView"
         >
 
-        <ImageView
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/bicyclecrunch" />
-
-        <ImageView
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/compundpushups" />
-
-
 
     </LinearLayout>
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/flStart"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/myImageView"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="150dp"-->
-<!--        android:background="@drawable/item_color_accent_border_ripple_background"-->
-<!--        >-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/start"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:textSize="22sp"-->
-<!--            android:textColor="#6a994e"-->
-<!--            android:textStyle="bold"/>-->
+    <FrameLayout
+        android:id="@+id/flStart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="244dp"
+        android:background="@drawable/item_color_accent_border_ripple_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myImageView">
 
-<!--    </FrameLayout>-->
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/play_svgrepo_com"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            />
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
