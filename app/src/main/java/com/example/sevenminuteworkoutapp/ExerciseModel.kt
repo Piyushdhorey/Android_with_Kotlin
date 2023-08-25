@@ -3,7 +3,7 @@ package com.example.sevenminuteworkoutapp
 class ExerciseModel (
     private var id: Int,
     private var name: String,
-    private var gif: Int,
+    private var gif: String,
     private var isCompleted: Boolean,
     private var isSelected: Boolean,
 ){
@@ -19,10 +19,10 @@ class ExerciseModel (
     fun setName(name: String){
         this.name = name
     }
-    fun getGif(): Int{
+    fun getGif(): String{
         return gif
     }
-    fun setGif(gif: Int){
+    fun setGif(gif: String){
         this.gif = gif
     }
     fun getIsCompleted(): Boolean{

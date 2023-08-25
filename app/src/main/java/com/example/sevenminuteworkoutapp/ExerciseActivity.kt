@@ -1,5 +1,6 @@
 package com.example.sevenminuteworkoutapp
 
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,13 +9,14 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.alpha
 import com.example.sevenminuteworkoutapp.databinding.ActivityExcerciseBinding
 import java.util.Locale
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-    private var binding: ActivityExcerciseBinding? = null
+    private var binding: com.example.sevenminuteworkoutapp.databinding.ActivityExcerciseBinding? = null
 
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
@@ -37,6 +39,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setSupportActionBar(binding?.toolbarExercise)
 
         mediaPlayer = MediaPlayer.create(this, R.raw.new_countdown)
+        binding?.ivGifImage?.playAnimation()
 
         if(supportActionBar != null){
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -59,6 +62,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.ivGifImage?.visibility = View.INVISIBLE
         binding?.tvUpcomingName?.visibility = View.VISIBLE
         binding?.tvExerciseUpcomingName?.visibility = View.VISIBLE
+        binding?.ivRestGifImage?.visibility = View.VISIBLE
+        binding?.mainConstraint?.background = ColorDrawable(ContextCompat.getColor(this, R.color.white))
+        binding?.ivRestGifImage?.setAnimation("water_orange.json")
+        binding?.ivRestGifImage?.playAnimation()
 
 
         if(restTimer != null){
@@ -79,8 +86,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvExerciseName?.visibility = View.VISIBLE
         binding?.flExerciseView?.visibility = View.VISIBLE
         binding?.ivGifImage?.visibility = View.VISIBLE
+        binding?.ivRestGifImage?.visibility = View.GONE
         binding?.tvUpcomingName?.visibility = View.INVISIBLE
         binding?.tvExerciseUpcomingName?.visibility = View.INVISIBLE
+        binding?.mainConstraint?.setBackgroundResource(R.drawable._459163__1_)
 
 
 
@@ -91,9 +100,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         speakOut(exerciseList!![currentExercisePosition].getName())
 
-        binding?.ivGifImage?.setImageResource(exerciseList!![currentExercisePosition].getGif())
-        binding?.ivGifImage?.alpha = 0.7f
+//        binding?.ivGifImage?.setImageResource(exerciseList!![currentExercisePosition].getGif().toString())
+        binding?.ivGifImage?.setAnimation(exerciseList!![currentExercisePosition].getGif().toString())
         binding?.tvExerciseName?.text = exerciseList!![currentExercisePosition].getName()
+        binding?.ivGifImage?.playAnimation()
 
         setExerciseProgressBar()
     }
@@ -135,6 +145,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 if(currentExercisePosition < exerciseList?.size!! - 1){
                     setupRestView()
                 }else{
+                    speakOut("Congrats, you have done it")
                     Toast.makeText(this@ExerciseActivity, "Congratulations! You have completed all exercises.", Toast.LENGTH_LONG).show()
                     setupRestView()
                 }

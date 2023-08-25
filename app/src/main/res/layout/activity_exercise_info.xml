@@ -79,8 +79,9 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/lungesGuy"
+            android:transitionName="lunges_image_small"
             android:layout_width="wrap_content"
-            android:layout_height="130dp"
+            android:layout_height="125dp"
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:src="@drawable/portrait_young_concentrated_man_doing_squats_exercise"
@@ -88,6 +89,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:shapeAppearanceOverlay="@style/roundimageview"
             tools:layout_editor_absoluteY="151dp" >
+
 
         </com.google.android.material.imageview.ShapeableImageView>
 
@@ -116,7 +118,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/joggingGuy"
             android:layout_width="wrap_content"
-            android:layout_height="130dp"
+            android:layout_height="125dp"
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:src="@drawable/wepik_export_20230824110838j2rk"
@@ -171,7 +173,6 @@
             />
 
     </FrameLayout>
-
 
 
 

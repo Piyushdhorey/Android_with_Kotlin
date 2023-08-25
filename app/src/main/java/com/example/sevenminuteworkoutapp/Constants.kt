@@ -6,8 +6,8 @@ object Constants {
 
         val bicycleCrunch  = ExerciseModel(
             1,
-            "COMPOUND PUSH-UPS",
-            R.drawable.compundpushups,
+            "COMPOUND PUSHUPS",
+            "pushup.json",
             false,
             false
         )
@@ -15,21 +15,93 @@ object Constants {
 
         val compundPushups = ExerciseModel(
             2,
-            "BICYCLE CRUNCH",
-            R.drawable.bicyclecrunch,
+            "JUMPING LUNGES",
+            "jumpingLunges.json",
             false,
             false
         )
         exerciseList.add(compundPushups)
 
-        val forwardLunges = ExerciseModel(
+        val cobra = ExerciseModel(
             3,
-            "FORWARD LUNGES",
-            R.drawable.forwardlunges,
+            "COBRA",
+            "cobra.json",
             false,
             false
         )
-        exerciseList.add(forwardLunges)
+        exerciseList.add(cobra)
+
+        val frogPress = ExerciseModel(
+            3,
+            "FROG PRESS",
+            "frog_press.json",
+            false,
+            false
+        )
+        exerciseList.add(frogPress)
+
+        val jumpingJack = ExerciseModel(
+            4,
+            "JUMPING JACK",
+            "jumping_jack.json",
+            false,
+            false
+        )
+        exerciseList.add(jumpingJack)
+
+        val reverseCrunches = ExerciseModel(
+            5,
+            "REVERSE CRUNCHES",
+            "forward_lunges.json",
+            false,
+            false
+        )
+        exerciseList.add(reverseCrunches)
+
+        val shoulderStretch = ExerciseModel(
+            6,
+            "SHOULDER STRETCH",
+            "shoulder_stretch.json",
+            false,
+            false
+        )
+        exerciseList.add(shoulderStretch)
+
+        val squatKicks = ExerciseModel(
+            7,
+            "SQUAT KICKS",
+            "squat_kicks.json",
+            false,
+            false
+        )
+        exerciseList.add(squatKicks)
+
+        val stepUpChair = ExerciseModel(
+            8,
+            "STEPUP CHAIR",
+            "step_up_chair.json",
+            false,
+            false
+        )
+        exerciseList.add(stepUpChair)
+
+        val squatReach = ExerciseModel(
+            9,
+            "SQUAT REACH",
+            "squat_reach.json",
+            false,
+            false
+        )
+        exerciseList.add(squatReach)
+
+        val singleLegHipDown = ExerciseModel(
+            10,
+            "SINGLE LEG HIP DOWN",
+            "single_leg_hip_down.json",
+            false,
+            false
+        )
+        exerciseList.add(singleLegHipDown)
 
         return exerciseList
     }

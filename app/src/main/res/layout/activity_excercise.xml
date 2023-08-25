@@ -4,24 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/_459163"
+    android:background="@color/white"
+    android:id="@+id/mainConstraint"
     tools:context=".ExerciseActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#BF123461"
-        />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_exercise"
         android:layout_width="match_parent"
         android:theme="@style/ToolbarTheme"
-        android:background="#8da9c4"
         app:titleTextColor="@color/white"
         android:layout_height="?android:attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/ivRestGifImage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginVertical="15dp"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_exercise"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_speed="1" />
 
 
     <TextView
@@ -29,9 +39,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GET READY FOR"
-        android:textColor="#e9ff70"
+        android:textColor="#4a4e69"
         android:textSize="22sp"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintBottom_toTopOf="@+id/flRestView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,8 +98,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="UPCOMING EXERCISE: "
-        android:fontFamily="serif-monospace"
-        android:textColor="#e9ff70"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="#4a4e69"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +112,7 @@
         android:id="@+id/tvExerciseUpcomingName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#e9ff70"
+        android:textColor="#4a4e69"
         android:textSize="24sp"
         android:fontFamily="monospace"
         android:textStyle="bold"
@@ -113,31 +123,35 @@
         tools:visibility="visible" />
 
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/ivGifImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:padding="5dp"
         android:scaleType="fitXY"
-        android:src="@drawable/forwardlunges"
-        android:padding="10dp"
         android:visibility="visible"
-        app:shapeAppearanceOverlay="@style/roundimageview"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_exercise" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_speed="1" />
 
     <TextView
         android:id="@+id/tvExerciseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Exercise name"
-        android:fontFamily="serif-monospace"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="#e9ff70"
         android:textSize="24sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivGifImage"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_exercise"
         tools:visibility="visible" />
 
     <FrameLayout
@@ -148,7 +162,6 @@
         android:visibility="gone"
         tools:visibility="visible"
         android:background="@drawable/item_circular_color_accent_border"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvExerciseName">
